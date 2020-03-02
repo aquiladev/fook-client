@@ -252,25 +252,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"name\":\"_values\",\"type\":\"uint256[]\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owners\",\"type\":\"address[]\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"balanceOfBatch\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"},{\"name\":\"_value\",\"type\":\"uint256\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"TransferSingle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"indexed\":false,\"name\":\"_values\",\"type\":\"uint256[]\"}],\"name\":\"TransferBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":true,\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"}],\"devdoc\":{\"details\":\"See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\\r Note: The ERC-165 identifier for this interface is 0xd9b67a26.\\r\",\"methods\":{\"balanceOf(address,uint256)\":{\"params\":{\"_id\":\"ID of the Token\\r\",\"_owner\":\"The address of the token holder\\r\"},\"return\":\"The _owner's balance of the Token type requested\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"params\":{\"_ids\":\"ID of the Tokens\\r\",\"_owners\":\"The addresses of the token holders\\r\"},\"return\":\"The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\\r\"},\"isApprovedForAll(address,address)\":{\"params\":{\"_operator\":\"Address of authorized operator\\r\",\"_owner\":\"The owner of the Tokens\\r\"},\"return\":\"True if the operator is approved, false if not\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if length of `_ids` is not the same as length of `_values`.\\r MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\\r MUST revert on any other error.\\r MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \\\"Safe Transfer Rules\\\" section of the standard).\\r Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\\r After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\\r\",\"_from\":\"Source address\\r\",\"_ids\":\"IDs of each token type (order and length must match _values array)\\r\",\"_to\":\"Target address\\r\",\"_values\":\"Transfer amounts per token type (order and length must match _ids array)\\r\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\\r MUST revert on any other error.\\r MUST emit the `TransferSingle` event to reflect the balance change (see \\\"Safe Transfer Rules\\\" section of the standard).\\r After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\\r\",\"_from\":\"Source address\\r\",\"_id\":\"ID of the token type\\r\",\"_to\":\"Target address\\r\",\"_value\":\"Transfer amount\\r\"}},\"setApprovalForAll(address,bool)\":{\"details\":\"MUST emit the ApprovalForAll event on success.\\r\",\"params\":{\"_approved\":\"True if the operator is approved, false to revoke approval\\r\",\"_operator\":\"Address to add to the set of authorized operators\\r\"}}},\"title\":\"ERC-1155 Multi Token Standard\\r\"},\"userdoc\":{\"methods\":{\"balanceOf(address,uint256)\":{\"notice\":\"Get the balance of an account's Tokens.\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"notice\":\"Get the balance of multiple account/token pairs\\r\"},\"isApprovedForAll(address,address)\":{\"notice\":\"Queries the approval status of an operator for a given owner.\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"setApprovalForAll(address,bool)\":{\"notice\":\"Enable or disable approval for a third party (\\\"operator\\\") to manage all of the caller's tokens.\\r\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol\":\"IERC1155\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol\":{\"keccak256\":\"0xfdd81938cb05358252248e8a37bacf2d381ba26d37616fcc21f74647a9a93802\",\"urls\":[\"bzzr://ba8d99c9c54c137baf3967593baef323a079a6ba8ed253455a13cbe516b949ef\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xe0ed10f53955c35eecb02724538650a155aa940be3f0a54cd3bde6c6b0c6e48c\",\"urls\":[\"bzzr://14f0ef90a240b2aca847fe1489b10965e04ba16cf221f52ed6470d0cad291f9d\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"name\":\"_values\",\"type\":\"uint256[]\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owners\",\"type\":\"address[]\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"balanceOfBatch\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"},{\"name\":\"_value\",\"type\":\"uint256\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"TransferSingle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"indexed\":false,\"name\":\"_values\",\"type\":\"uint256[]\"}],\"name\":\"TransferBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":true,\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"}],\"devdoc\":{\"details\":\"See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\\r Note: The ERC-165 identifier for this interface is 0xd9b67a26.\\r\",\"methods\":{\"balanceOf(address,uint256)\":{\"params\":{\"_id\":\"ID of the Token\\r\",\"_owner\":\"The address of the token holder\\r\"},\"return\":\"The _owner's balance of the Token type requested\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"params\":{\"_ids\":\"ID of the Tokens\\r\",\"_owners\":\"The addresses of the token holders\\r\"},\"return\":\"The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\\r\"},\"isApprovedForAll(address,address)\":{\"params\":{\"_operator\":\"Address of authorized operator\\r\",\"_owner\":\"The owner of the Tokens\\r\"},\"return\":\"True if the operator is approved, false if not\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if length of `_ids` is not the same as length of `_values`.\\r MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\\r MUST revert on any other error.\\r MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \\\"Safe Transfer Rules\\\" section of the standard).\\r Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\\r After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\\r\",\"_from\":\"Source address\\r\",\"_ids\":\"IDs of each token type (order and length must match _values array)\\r\",\"_to\":\"Target address\\r\",\"_values\":\"Transfer amounts per token type (order and length must match _ids array)\\r\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\\r MUST revert on any other error.\\r MUST emit the `TransferSingle` event to reflect the balance change (see \\\"Safe Transfer Rules\\\" section of the standard).\\r After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\\r\",\"_from\":\"Source address\\r\",\"_id\":\"ID of the token type\\r\",\"_to\":\"Target address\\r\",\"_value\":\"Transfer amount\\r\"}},\"setApprovalForAll(address,bool)\":{\"details\":\"MUST emit the ApprovalForAll event on success.\\r\",\"params\":{\"_approved\":\"True if the operator is approved, false to revoke approval\\r\",\"_operator\":\"Address to add to the set of authorized operators\\r\"}}},\"title\":\"ERC-1155 Multi Token Standard\\r\"},\"userdoc\":{\"methods\":{\"balanceOf(address,uint256)\":{\"notice\":\"Get the balance of an account's Tokens.\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"notice\":\"Get the balance of multiple account/token pairs\\r\"},\"isApprovedForAll(address,address)\":{\"notice\":\"Queries the approval status of an operator for a given owner.\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"setApprovalForAll(address,bool)\":{\"notice\":\"Enable or disable approval for a third party (\\\"operator\\\") to manage all of the caller's tokens.\\r\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol\":\"IERC1155\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol\":{\"keccak256\":\"0xfdd81938cb05358252248e8a37bacf2d381ba26d37616fcc21f74647a9a93802\",\"urls\":[\"bzzr://ba8d99c9c54c137baf3967593baef323a079a6ba8ed253455a13cbe516b949ef\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xe0ed10f53955c35eecb02724538650a155aa940be3f0a54cd3bde6c6b0c6e48c\",\"urls\":[\"bzzr://14f0ef90a240b2aca847fe1489b10965e04ba16cf221f52ed6470d0cad291f9d\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"@openzeppelin/contracts/introspection/IERC165.sol\";\r\n\r\n/**\r\n    @title ERC-1155 Multi Token Standard\r\n    @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\r\n    Note: The ERC-165 identifier for this interface is 0xd9b67a26.\r\n */\r\ninterface IERC1155 /* is ERC165 */ {\r\n    /**\r\n        @dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\n        The `_operator` argument MUST be msg.sender.\r\n        The `_from` argument MUST be the address of the holder whose balance is decreased.\r\n        The `_to` argument MUST be the address of the recipient whose balance is increased.\r\n        The `_id` argument MUST be the token type being transferred.\r\n        The `_value` argument MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by.\r\n        When minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\n        When burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r\n    */\r\n    event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);\r\n\r\n    /**\r\n        @dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\n        The `_operator` argument MUST be msg.sender.\r\n        The `_from` argument MUST be the address of the holder whose balance is decreased.\r\n        The `_to` argument MUST be the address of the recipient whose balance is increased.\r\n        The `_ids` argument MUST be the list of tokens being transferred.\r\n        The `_values` argument MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by.\r\n        When minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\n        When burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r\n    */\r\n    event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);\r\n\r\n    /**\r\n        @dev MUST emit when approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled (absense of an event assumes disabled).\r\n    */\r\n    event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);\r\n\r\n    /**\r\n        @dev MUST emit when the URI is updated for a token ID.\r\n        URIs are defined in RFC 3986.\r\n        The URI MUST point a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".\r\n    */\r\n    event URI(string _value, uint256 indexed _id);\r\n\r\n    /**\r\n        @notice Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\r\n        @dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\n        MUST revert if `_to` is the zero address.\r\n        MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\r\n        MUST revert on any other error.\r\n        MUST emit the `TransferSingle` event to reflect the balance change (see \"Safe Transfer Rules\" section of the standard).\r\n        After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n        @param _from    Source address\r\n        @param _to      Target address\r\n        @param _id      ID of the token type\r\n        @param _value   Transfer amount\r\n        @param _data    Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\r\n    */\r\n    function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external;\r\n\r\n    /**\r\n        @notice Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\r\n        @dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\n        MUST revert if `_to` is the zero address.\r\n        MUST revert if length of `_ids` is not the same as length of `_values`.\r\n        MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\r\n        MUST revert on any other error.\r\n        MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \"Safe Transfer Rules\" section of the standard).\r\n        Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\r\n        After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n        @param _from    Source address\r\n        @param _to      Target address\r\n        @param _ids     IDs of each token type (order and length must match _values array)\r\n        @param _values  Transfer amounts per token type (order and length must match _ids array)\r\n        @param _data    Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\r\n    */\r\n    function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external;\r\n\r\n    /**\r\n        @notice Get the balance of an account's Tokens.\r\n        @param _owner  The address of the token holder\r\n        @param _id     ID of the Token\r\n        @return        The _owner's balance of the Token type requested\r\n     */\r\n    function balanceOf(address _owner, uint256 _id) external view returns (uint256);\r\n\r\n    /**\r\n        @notice Get the balance of multiple account/token pairs\r\n        @param _owners The addresses of the token holders\r\n        @param _ids    ID of the Tokens\r\n        @return        The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\r\n     */\r\n    function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory);\r\n\r\n    /**\r\n        @notice Enable or disable approval for a third party (\"operator\") to manage all of the caller's tokens.\r\n        @dev MUST emit the ApprovalForAll event on success.\r\n        @param _operator  Address to add to the set of authorized operators\r\n        @param _approved  True if the operator is approved, false to revoke approval\r\n    */\r\n    function setApprovalForAll(address _operator, bool _approved) external;\r\n\r\n    /**\r\n        @notice Queries the approval status of an operator for a given owner.\r\n        @param _owner     The owner of the Tokens\r\n        @param _operator  Address of authorized operator\r\n        @return           True if the operator is approved, false if not\r\n    */\r\n    function isApprovedForAll(address _owner, address _operator) external view returns (bool);\r\n}\r\n",
-  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\festook\\contracts\\IERC1155.sol",
+  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\fook\\contracts\\IERC1155.sol",
   "ast": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol",
     "exportedSymbols": {
       "IERC1155": [
-        2250
+        2296
       ]
     },
-    "id": 2251,
+    "id": 2297,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2143,
+        "id": 2189,
         "literals": [
           "solidity",
           "^",
@@ -283,10 +283,10 @@
       {
         "absolutePath": "@openzeppelin/contracts/introspection/IERC165.sol",
         "file": "@openzeppelin/contracts/introspection/IERC165.sol",
-        "id": 2144,
+        "id": 2190,
         "nodeType": "ImportDirective",
-        "scope": 2251,
-        "sourceUnit": 2709,
+        "scope": 2297,
+        "sourceUnit": 2755,
         "src": "27:59:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -297,9 +297,9 @@
         "contractKind": "interface",
         "documentation": "@title ERC-1155 Multi Token Standard\r\n@dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\r\nNote: The ERC-165 identifier for this interface is 0xd9b67a26.\r",
         "fullyImplemented": false,
-        "id": 2250,
+        "id": 2296,
         "linearizedBaseContracts": [
-          2250
+          2296
         ],
         "name": "IERC1155",
         "nodeType": "ContractDefinition",
@@ -307,20 +307,20 @@
           {
             "anonymous": false,
             "documentation": "@dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\nThe `_operator` argument MUST be msg.sender.\r\nThe `_from` argument MUST be the address of the holder whose balance is decreased.\r\nThe `_to` argument MUST be the address of the recipient whose balance is increased.\r\nThe `_id` argument MUST be the token type being transferred.\r\nThe `_value` argument MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by.\r\nWhen minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\nWhen burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r",
-            "id": 2156,
+            "id": 2202,
             "name": "TransferSingle",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2155,
+              "id": 2201,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2146,
+                  "id": 2192,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1238:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -329,7 +329,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2145,
+                    "id": 2191,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1238:7:10",
@@ -344,11 +344,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2148,
+                  "id": 2194,
                   "indexed": true,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1265:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -357,7 +357,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2147,
+                    "id": 2193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1265:7:10",
@@ -372,11 +372,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2150,
+                  "id": 2196,
                   "indexed": true,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1288:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -385,7 +385,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2149,
+                    "id": 2195,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1288:7:10",
@@ -400,11 +400,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2152,
+                  "id": 2198,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1309:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -413,7 +413,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2151,
+                    "id": 2197,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1309:7:10",
@@ -427,11 +427,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2154,
+                  "id": 2200,
                   "indexed": false,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1322:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -440,7 +440,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2153,
+                    "id": 2199,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1322:7:10",
@@ -460,20 +460,20 @@
           {
             "anonymous": false,
             "documentation": "@dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\nThe `_operator` argument MUST be msg.sender.\r\nThe `_from` argument MUST be the address of the holder whose balance is decreased.\r\nThe `_to` argument MUST be the address of the recipient whose balance is increased.\r\nThe `_ids` argument MUST be the list of tokens being transferred.\r\nThe `_values` argument MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by.\r\nWhen minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\nWhen burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r",
-            "id": 2170,
+            "id": 2216,
             "name": "TransferBatch",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2169,
+              "id": 2215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2158,
+                  "id": 2204,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2327:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -482,7 +482,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2157,
+                    "id": 2203,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2327:7:10",
@@ -497,11 +497,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2160,
+                  "id": 2206,
                   "indexed": true,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2354:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -510,7 +510,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2159,
+                    "id": 2205,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2354:7:10",
@@ -525,11 +525,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2162,
+                  "id": 2208,
                   "indexed": true,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2377:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -538,7 +538,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2161,
+                    "id": 2207,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2377:7:10",
@@ -553,11 +553,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2165,
+                  "id": 2211,
                   "indexed": false,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2398:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -567,7 +567,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2163,
+                      "id": 2209,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2398:7:10",
@@ -576,7 +576,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2164,
+                    "id": 2210,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2398:9:10",
@@ -590,11 +590,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2168,
+                  "id": 2214,
                   "indexed": false,
                   "name": "_values",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2414:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -604,7 +604,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2166,
+                      "id": 2212,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2414:7:10",
@@ -613,7 +613,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2167,
+                    "id": 2213,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2414:9:10",
@@ -633,20 +633,20 @@
           {
             "anonymous": false,
             "documentation": "@dev MUST emit when approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled (absense of an event assumes disabled).\r",
-            "id": 2178,
+            "id": 2224,
             "name": "ApprovalForAll",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2177,
+              "id": 2223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2172,
+                  "id": 2218,
                   "indexed": true,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2658:22:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -655,7 +655,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2171,
+                    "id": 2217,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2658:7:10",
@@ -670,11 +670,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2174,
+                  "id": 2220,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2682:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -683,7 +683,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2173,
+                    "id": 2219,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2682:7:10",
@@ -698,11 +698,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2176,
+                  "id": 2222,
                   "indexed": false,
                   "name": "_approved",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2709:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -711,7 +711,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2175,
+                    "id": 2221,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2709:4:10",
@@ -731,20 +731,20 @@
           {
             "anonymous": false,
             "documentation": "@dev MUST emit when the URI is updated for a token ID.\r\nURIs are defined in RFC 3986.\r\nThe URI MUST point a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".\r",
-            "id": 2184,
+            "id": 2230,
             "name": "URI",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2183,
+              "id": 2229,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2180,
+                  "id": 2226,
                   "indexed": false,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2184,
+                  "scope": 2230,
                   "src": "2961:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -753,7 +753,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2179,
+                    "id": 2225,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2961:6:10",
@@ -767,11 +767,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2182,
+                  "id": 2228,
                   "indexed": true,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2184,
+                  "scope": 2230,
                   "src": "2976:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -780,7 +780,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2181,
+                    "id": 2227,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2976:7:10",
@@ -800,22 +800,22 @@
           {
             "body": null,
             "documentation": "@notice Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\r\n@dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\nMUST revert if `_to` is the zero address.\r\nMUST revert if balance of holder for token `_id` is lower than the `_value` sent.\r\nMUST revert on any other error.\r\nMUST emit the `TransferSingle` event to reflect the balance change (see \"Safe Transfer Rules\" section of the standard).\r\nAfter the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n@param _from    Source address\r\n@param _to      Target address\r\n@param _id      ID of the token type\r\n@param _value   Transfer amount\r\n@param _data    Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\r",
-            "id": 2197,
+            "id": 2243,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeTransferFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2195,
+              "id": 2241,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2186,
+                  "id": 2232,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4179:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -824,7 +824,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2185,
+                    "id": 2231,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4179:7:10",
@@ -839,10 +839,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2188,
+                  "id": 2234,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4194:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -851,7 +851,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2187,
+                    "id": 2233,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4194:7:10",
@@ -866,10 +866,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2190,
+                  "id": 2236,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4207:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -878,7 +878,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2189,
+                    "id": 2235,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4207:7:10",
@@ -892,10 +892,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2192,
+                  "id": 2238,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4220:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -904,7 +904,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2191,
+                    "id": 2237,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4220:7:10",
@@ -918,10 +918,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2194,
+                  "id": 2240,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4236:20:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -930,7 +930,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2193,
+                    "id": 2239,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "4236:5:10",
@@ -946,12 +946,12 @@
               "src": "4178:79:10"
             },
             "returnParameters": {
-              "id": 2196,
+              "id": 2242,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4266:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "4153:114:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -960,22 +960,22 @@
           {
             "body": null,
             "documentation": "@notice Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\r\n@dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\nMUST revert if `_to` is the zero address.\r\nMUST revert if length of `_ids` is not the same as length of `_values`.\r\nMUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\r\nMUST revert on any other error.\r\nMUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \"Safe Transfer Rules\" section of the standard).\r\nBalance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\r\nAfter the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n@param _from    Source address\r\n@param _to      Target address\r\n@param _ids     IDs of each token type (order and length must match _values array)\r\n@param _values  Transfer amounts per token type (order and length must match _ids array)\r\n@param _data    Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\r",
-            "id": 2212,
+            "id": 2258,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeBatchTransferFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2210,
+              "id": 2256,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2199,
+                  "id": 2245,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5946:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -984,7 +984,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2198,
+                    "id": 2244,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5946:7:10",
@@ -999,10 +999,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2201,
+                  "id": 2247,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5961:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1011,7 +1011,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2200,
+                    "id": 2246,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5961:7:10",
@@ -1026,10 +1026,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2204,
+                  "id": 2250,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5974:23:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1039,7 +1039,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2202,
+                      "id": 2248,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "5974:7:10",
@@ -1048,7 +1048,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2203,
+                    "id": 2249,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5974:9:10",
@@ -1062,10 +1062,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2207,
+                  "id": 2253,
                   "name": "_values",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5999:26:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1075,7 +1075,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2205,
+                      "id": 2251,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "5999:7:10",
@@ -1084,7 +1084,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2206,
+                    "id": 2252,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5999:9:10",
@@ -1098,10 +1098,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2209,
+                  "id": 2255,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "6027:20:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1110,7 +1110,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2208,
+                    "id": 2254,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "6027:5:10",
@@ -1126,12 +1126,12 @@
               "src": "5945:103:10"
             },
             "returnParameters": {
-              "id": 2211,
+              "id": 2257,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6057:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "5915:143:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1140,22 +1140,22 @@
           {
             "body": null,
             "documentation": "@notice Get the balance of an account's Tokens.\r\n@param _owner  The address of the token holder\r\n@param _id     ID of the Token\r\n@return        The _owner's balance of the Token type requested\r",
-            "id": 2221,
+            "id": 2267,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "balanceOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2217,
+              "id": 2263,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2214,
+                  "id": 2260,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6329:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1164,7 +1164,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2213,
+                    "id": 2259,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6329:7:10",
@@ -1179,10 +1179,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2216,
+                  "id": 2262,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6345:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1191,7 +1191,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2215,
+                    "id": 2261,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6345:7:10",
@@ -1207,15 +1207,15 @@
               "src": "6328:29:10"
             },
             "returnParameters": {
-              "id": 2220,
+              "id": 2266,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2219,
+                  "id": 2265,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6381:7:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1224,7 +1224,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2218,
+                    "id": 2264,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6381:7:10",
@@ -1239,7 +1239,7 @@
               ],
               "src": "6380:9:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "6310:80:10",
             "stateMutability": "view",
             "superFunction": null,
@@ -1248,22 +1248,22 @@
           {
             "body": null,
             "documentation": "@notice Get the balance of multiple account/token pairs\r\n@param _owners The addresses of the token holders\r\n@param _ids    ID of the Tokens\r\n@return        The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\r",
-            "id": 2233,
+            "id": 2279,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "balanceOfBatch",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2228,
+              "id": 2274,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2224,
+                  "id": 2270,
                   "name": "_owners",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6720:26:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1273,7 +1273,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2222,
+                      "id": 2268,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "6720:7:10",
@@ -1283,7 +1283,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2223,
+                    "id": 2269,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6720:9:10",
@@ -1297,10 +1297,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2227,
+                  "id": 2273,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6748:23:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1310,7 +1310,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2225,
+                      "id": 2271,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6748:7:10",
@@ -1319,7 +1319,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2226,
+                    "id": 2272,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6748:9:10",
@@ -1335,15 +1335,15 @@
               "src": "6719:53:10"
             },
             "returnParameters": {
-              "id": 2232,
+              "id": 2278,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2231,
+                  "id": 2277,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6796:16:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1353,7 +1353,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2229,
+                      "id": 2275,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6796:7:10",
@@ -1362,7 +1362,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2230,
+                    "id": 2276,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6796:9:10",
@@ -1377,7 +1377,7 @@
               ],
               "src": "6795:18:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "6696:118:10",
             "stateMutability": "view",
             "superFunction": null,
@@ -1386,22 +1386,22 @@
           {
             "body": null,
             "documentation": "@notice Enable or disable approval for a third party (\"operator\") to manage all of the caller's tokens.\r\n@dev MUST emit the ApprovalForAll event on success.\r\n@param _operator  Address to add to the set of authorized operators\r\n@param _approved  True if the operator is approved, false to revoke approval\r",
-            "id": 2240,
+            "id": 2286,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setApprovalForAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2238,
+              "id": 2284,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2235,
+                  "id": 2281,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2240,
+                  "scope": 2286,
                   "src": "7203:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1410,7 +1410,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2234,
+                    "id": 2280,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7203:7:10",
@@ -1425,10 +1425,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2237,
+                  "id": 2283,
                   "name": "_approved",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2240,
+                  "scope": 2286,
                   "src": "7222:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1437,7 +1437,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2236,
+                    "id": 2282,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "7222:4:10",
@@ -1453,12 +1453,12 @@
               "src": "7202:35:10"
             },
             "returnParameters": {
-              "id": 2239,
+              "id": 2285,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "7246:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "7176:71:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1467,22 +1467,22 @@
           {
             "body": null,
             "documentation": "@notice Queries the approval status of an operator for a given owner.\r\n@param _owner     The owner of the Tokens\r\n@param _operator  Address of authorized operator\r\n@return           True if the operator is approved, false if not\r",
-            "id": 2249,
+            "id": 2295,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isApprovedForAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2245,
+              "id": 2291,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2242,
+                  "id": 2288,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7560:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1491,7 +1491,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2241,
+                    "id": 2287,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7560:7:10",
@@ -1506,10 +1506,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2244,
+                  "id": 2290,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7576:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1518,7 +1518,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2243,
+                    "id": 2289,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7576:7:10",
@@ -1535,15 +1535,15 @@
               "src": "7559:35:10"
             },
             "returnParameters": {
-              "id": 2248,
+              "id": 2294,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2247,
+                  "id": 2293,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7618:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1552,7 +1552,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2246,
+                    "id": 2292,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "7618:4:10",
@@ -1567,31 +1567,31 @@
               ],
               "src": "7617:6:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "7534:90:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2251,
+        "scope": 2297,
         "src": "286:7341:10"
       }
     ],
     "src": "0:7629:10"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol",
     "exportedSymbols": {
       "IERC1155": [
-        2250
+        2296
       ]
     },
-    "id": 2251,
+    "id": 2297,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2143,
+        "id": 2189,
         "literals": [
           "solidity",
           "^",
@@ -1604,10 +1604,10 @@
       {
         "absolutePath": "@openzeppelin/contracts/introspection/IERC165.sol",
         "file": "@openzeppelin/contracts/introspection/IERC165.sol",
-        "id": 2144,
+        "id": 2190,
         "nodeType": "ImportDirective",
-        "scope": 2251,
-        "sourceUnit": 2709,
+        "scope": 2297,
+        "sourceUnit": 2755,
         "src": "27:59:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1618,9 +1618,9 @@
         "contractKind": "interface",
         "documentation": "@title ERC-1155 Multi Token Standard\r\n@dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\r\nNote: The ERC-165 identifier for this interface is 0xd9b67a26.\r",
         "fullyImplemented": false,
-        "id": 2250,
+        "id": 2296,
         "linearizedBaseContracts": [
-          2250
+          2296
         ],
         "name": "IERC1155",
         "nodeType": "ContractDefinition",
@@ -1628,20 +1628,20 @@
           {
             "anonymous": false,
             "documentation": "@dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\nThe `_operator` argument MUST be msg.sender.\r\nThe `_from` argument MUST be the address of the holder whose balance is decreased.\r\nThe `_to` argument MUST be the address of the recipient whose balance is increased.\r\nThe `_id` argument MUST be the token type being transferred.\r\nThe `_value` argument MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by.\r\nWhen minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\nWhen burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r",
-            "id": 2156,
+            "id": 2202,
             "name": "TransferSingle",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2155,
+              "id": 2201,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2146,
+                  "id": 2192,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1238:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1650,7 +1650,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2145,
+                    "id": 2191,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1238:7:10",
@@ -1665,11 +1665,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2148,
+                  "id": 2194,
                   "indexed": true,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1265:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1678,7 +1678,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2147,
+                    "id": 2193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1265:7:10",
@@ -1693,11 +1693,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2150,
+                  "id": 2196,
                   "indexed": true,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1288:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1706,7 +1706,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2149,
+                    "id": 2195,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1288:7:10",
@@ -1721,11 +1721,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2152,
+                  "id": 2198,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1309:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1734,7 +1734,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2151,
+                    "id": 2197,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1309:7:10",
@@ -1748,11 +1748,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2154,
+                  "id": 2200,
                   "indexed": false,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2156,
+                  "scope": 2202,
                   "src": "1322:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1761,7 +1761,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2153,
+                    "id": 2199,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1322:7:10",
@@ -1781,20 +1781,20 @@
           {
             "anonymous": false,
             "documentation": "@dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\r\nThe `_operator` argument MUST be msg.sender.\r\nThe `_from` argument MUST be the address of the holder whose balance is decreased.\r\nThe `_to` argument MUST be the address of the recipient whose balance is increased.\r\nThe `_ids` argument MUST be the list of tokens being transferred.\r\nThe `_values` argument MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by.\r\nWhen minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\r\nWhen burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).\r",
-            "id": 2170,
+            "id": 2216,
             "name": "TransferBatch",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2169,
+              "id": 2215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2158,
+                  "id": 2204,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2327:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1803,7 +1803,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2157,
+                    "id": 2203,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2327:7:10",
@@ -1818,11 +1818,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2160,
+                  "id": 2206,
                   "indexed": true,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2354:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1831,7 +1831,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2159,
+                    "id": 2205,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2354:7:10",
@@ -1846,11 +1846,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2162,
+                  "id": 2208,
                   "indexed": true,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2377:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1859,7 +1859,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2161,
+                    "id": 2207,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2377:7:10",
@@ -1874,11 +1874,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2165,
+                  "id": 2211,
                   "indexed": false,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2398:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1888,7 +1888,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2163,
+                      "id": 2209,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2398:7:10",
@@ -1897,7 +1897,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2164,
+                    "id": 2210,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2398:9:10",
@@ -1911,11 +1911,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2168,
+                  "id": 2214,
                   "indexed": false,
                   "name": "_values",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2170,
+                  "scope": 2216,
                   "src": "2414:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1925,7 +1925,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2166,
+                      "id": 2212,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2414:7:10",
@@ -1934,7 +1934,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2167,
+                    "id": 2213,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "2414:9:10",
@@ -1954,20 +1954,20 @@
           {
             "anonymous": false,
             "documentation": "@dev MUST emit when approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled (absense of an event assumes disabled).\r",
-            "id": 2178,
+            "id": 2224,
             "name": "ApprovalForAll",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2177,
+              "id": 2223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2172,
+                  "id": 2218,
                   "indexed": true,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2658:22:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1976,7 +1976,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2171,
+                    "id": 2217,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2658:7:10",
@@ -1991,11 +1991,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2174,
+                  "id": 2220,
                   "indexed": true,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2682:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2004,7 +2004,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2173,
+                    "id": 2219,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2682:7:10",
@@ -2019,11 +2019,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2176,
+                  "id": 2222,
                   "indexed": false,
                   "name": "_approved",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2178,
+                  "scope": 2224,
                   "src": "2709:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2032,7 +2032,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2175,
+                    "id": 2221,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2709:4:10",
@@ -2052,20 +2052,20 @@
           {
             "anonymous": false,
             "documentation": "@dev MUST emit when the URI is updated for a token ID.\r\nURIs are defined in RFC 3986.\r\nThe URI MUST point a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".\r",
-            "id": 2184,
+            "id": 2230,
             "name": "URI",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2183,
+              "id": 2229,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2180,
+                  "id": 2226,
                   "indexed": false,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2184,
+                  "scope": 2230,
                   "src": "2961:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2074,7 +2074,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2179,
+                    "id": 2225,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2961:6:10",
@@ -2088,11 +2088,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2182,
+                  "id": 2228,
                   "indexed": true,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2184,
+                  "scope": 2230,
                   "src": "2976:19:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2101,7 +2101,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2181,
+                    "id": 2227,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2976:7:10",
@@ -2121,22 +2121,22 @@
           {
             "body": null,
             "documentation": "@notice Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\r\n@dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\nMUST revert if `_to` is the zero address.\r\nMUST revert if balance of holder for token `_id` is lower than the `_value` sent.\r\nMUST revert on any other error.\r\nMUST emit the `TransferSingle` event to reflect the balance change (see \"Safe Transfer Rules\" section of the standard).\r\nAfter the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n@param _from    Source address\r\n@param _to      Target address\r\n@param _id      ID of the token type\r\n@param _value   Transfer amount\r\n@param _data    Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\r",
-            "id": 2197,
+            "id": 2243,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeTransferFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2195,
+              "id": 2241,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2186,
+                  "id": 2232,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4179:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2145,7 +2145,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2185,
+                    "id": 2231,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4179:7:10",
@@ -2160,10 +2160,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2188,
+                  "id": 2234,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4194:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2172,7 +2172,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2187,
+                    "id": 2233,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4194:7:10",
@@ -2187,10 +2187,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2190,
+                  "id": 2236,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4207:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2199,7 +2199,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2189,
+                    "id": 2235,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4207:7:10",
@@ -2213,10 +2213,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2192,
+                  "id": 2238,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4220:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2225,7 +2225,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2191,
+                    "id": 2237,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4220:7:10",
@@ -2239,10 +2239,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2194,
+                  "id": 2240,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2197,
+                  "scope": 2243,
                   "src": "4236:20:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2251,7 +2251,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2193,
+                    "id": 2239,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "4236:5:10",
@@ -2267,12 +2267,12 @@
               "src": "4178:79:10"
             },
             "returnParameters": {
-              "id": 2196,
+              "id": 2242,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4266:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "4153:114:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2281,22 +2281,22 @@
           {
             "body": null,
             "documentation": "@notice Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\r\n@dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\r\nMUST revert if `_to` is the zero address.\r\nMUST revert if length of `_ids` is not the same as length of `_values`.\r\nMUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\r\nMUST revert on any other error.\r\nMUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \"Safe Transfer Rules\" section of the standard).\r\nBalance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\r\nAfter the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).\r\n@param _from    Source address\r\n@param _to      Target address\r\n@param _ids     IDs of each token type (order and length must match _values array)\r\n@param _values  Transfer amounts per token type (order and length must match _ids array)\r\n@param _data    Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\r",
-            "id": 2212,
+            "id": 2258,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeBatchTransferFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2210,
+              "id": 2256,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2199,
+                  "id": 2245,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5946:13:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2305,7 +2305,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2198,
+                    "id": 2244,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5946:7:10",
@@ -2320,10 +2320,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2201,
+                  "id": 2247,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5961:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2332,7 +2332,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2200,
+                    "id": 2246,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5961:7:10",
@@ -2347,10 +2347,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2204,
+                  "id": 2250,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5974:23:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2360,7 +2360,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2202,
+                      "id": 2248,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "5974:7:10",
@@ -2369,7 +2369,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2203,
+                    "id": 2249,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5974:9:10",
@@ -2383,10 +2383,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2207,
+                  "id": 2253,
                   "name": "_values",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "5999:26:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2396,7 +2396,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2205,
+                      "id": 2251,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "5999:7:10",
@@ -2405,7 +2405,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2206,
+                    "id": 2252,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5999:9:10",
@@ -2419,10 +2419,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2209,
+                  "id": 2255,
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2212,
+                  "scope": 2258,
                   "src": "6027:20:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2431,7 +2431,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2208,
+                    "id": 2254,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "6027:5:10",
@@ -2447,12 +2447,12 @@
               "src": "5945:103:10"
             },
             "returnParameters": {
-              "id": 2211,
+              "id": 2257,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6057:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "5915:143:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2461,22 +2461,22 @@
           {
             "body": null,
             "documentation": "@notice Get the balance of an account's Tokens.\r\n@param _owner  The address of the token holder\r\n@param _id     ID of the Token\r\n@return        The _owner's balance of the Token type requested\r",
-            "id": 2221,
+            "id": 2267,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "balanceOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2217,
+              "id": 2263,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2214,
+                  "id": 2260,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6329:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2485,7 +2485,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2213,
+                    "id": 2259,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6329:7:10",
@@ -2500,10 +2500,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2216,
+                  "id": 2262,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6345:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2512,7 +2512,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2215,
+                    "id": 2261,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6345:7:10",
@@ -2528,15 +2528,15 @@
               "src": "6328:29:10"
             },
             "returnParameters": {
-              "id": 2220,
+              "id": 2266,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2219,
+                  "id": 2265,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2221,
+                  "scope": 2267,
                   "src": "6381:7:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2545,7 +2545,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2218,
+                    "id": 2264,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6381:7:10",
@@ -2560,7 +2560,7 @@
               ],
               "src": "6380:9:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "6310:80:10",
             "stateMutability": "view",
             "superFunction": null,
@@ -2569,22 +2569,22 @@
           {
             "body": null,
             "documentation": "@notice Get the balance of multiple account/token pairs\r\n@param _owners The addresses of the token holders\r\n@param _ids    ID of the Tokens\r\n@return        The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\r",
-            "id": 2233,
+            "id": 2279,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "balanceOfBatch",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2228,
+              "id": 2274,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2224,
+                  "id": 2270,
                   "name": "_owners",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6720:26:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2594,7 +2594,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2222,
+                      "id": 2268,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "6720:7:10",
@@ -2604,7 +2604,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2223,
+                    "id": 2269,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6720:9:10",
@@ -2618,10 +2618,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2227,
+                  "id": 2273,
                   "name": "_ids",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6748:23:10",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2631,7 +2631,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2225,
+                      "id": 2271,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6748:7:10",
@@ -2640,7 +2640,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2226,
+                    "id": 2272,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6748:9:10",
@@ -2656,15 +2656,15 @@
               "src": "6719:53:10"
             },
             "returnParameters": {
-              "id": 2232,
+              "id": 2278,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2231,
+                  "id": 2277,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2233,
+                  "scope": 2279,
                   "src": "6796:16:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2674,7 +2674,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2229,
+                      "id": 2275,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6796:7:10",
@@ -2683,7 +2683,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2230,
+                    "id": 2276,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "6796:9:10",
@@ -2698,7 +2698,7 @@
               ],
               "src": "6795:18:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "6696:118:10",
             "stateMutability": "view",
             "superFunction": null,
@@ -2707,22 +2707,22 @@
           {
             "body": null,
             "documentation": "@notice Enable or disable approval for a third party (\"operator\") to manage all of the caller's tokens.\r\n@dev MUST emit the ApprovalForAll event on success.\r\n@param _operator  Address to add to the set of authorized operators\r\n@param _approved  True if the operator is approved, false to revoke approval\r",
-            "id": 2240,
+            "id": 2286,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setApprovalForAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2238,
+              "id": 2284,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2235,
+                  "id": 2281,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2240,
+                  "scope": 2286,
                   "src": "7203:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2731,7 +2731,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2234,
+                    "id": 2280,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7203:7:10",
@@ -2746,10 +2746,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2237,
+                  "id": 2283,
                   "name": "_approved",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2240,
+                  "scope": 2286,
                   "src": "7222:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2758,7 +2758,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2236,
+                    "id": 2282,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "7222:4:10",
@@ -2774,12 +2774,12 @@
               "src": "7202:35:10"
             },
             "returnParameters": {
-              "id": 2239,
+              "id": 2285,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "7246:0:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "7176:71:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2788,22 +2788,22 @@
           {
             "body": null,
             "documentation": "@notice Queries the approval status of an operator for a given owner.\r\n@param _owner     The owner of the Tokens\r\n@param _operator  Address of authorized operator\r\n@return           True if the operator is approved, false if not\r",
-            "id": 2249,
+            "id": 2295,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isApprovedForAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2245,
+              "id": 2291,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2242,
+                  "id": 2288,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7560:14:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2812,7 +2812,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2241,
+                    "id": 2287,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7560:7:10",
@@ -2827,10 +2827,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2244,
+                  "id": 2290,
                   "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7576:17:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2839,7 +2839,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2243,
+                    "id": 2289,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7576:7:10",
@@ -2856,15 +2856,15 @@
               "src": "7559:35:10"
             },
             "returnParameters": {
-              "id": 2248,
+              "id": 2294,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2247,
+                  "id": 2293,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2249,
+                  "scope": 2295,
                   "src": "7618:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2873,7 +2873,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2246,
+                    "id": 2292,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "7618:4:10",
@@ -2888,14 +2888,14 @@
               ],
               "src": "7617:6:10"
             },
-            "scope": 2250,
+            "scope": 2296,
             "src": "7534:90:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2251,
+        "scope": 2297,
         "src": "286:7341:10"
       }
     ],
@@ -2907,7 +2907,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-02-11T09:38:15.176Z",
+  "updatedAt": "2020-03-02T11:22:53.472Z",
   "devdoc": {
     "details": "See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md\r Note: The ERC-165 identifier for this interface is 0xd9b67a26.\r",
     "methods": {

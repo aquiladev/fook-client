@@ -1,15 +1,15 @@
 {
   "contractName": "CommonConstants",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"Note: Simple contract to use as base for const vals\\r\"}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Common.sol\":\"CommonConstants\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Common.sol\":{\"keccak256\":\"0x0d89b028075676ec36d3c3564fb222e0bad4317e2c6561639be2a2f1fa510283\",\"urls\":[\"bzzr://88c0afc47fa6ba5721b3f2f5248acfb31d7910d187f4b21e9c5073c94836445e\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a72305820d188f1dc13eed1c99e85de36571d3a7128eb8ea9655769bf2009294c82131e6d0029",
-  "deployedBytecode": "0x6080604052600080fdfea165627a7a72305820d188f1dc13eed1c99e85de36571d3a7128eb8ea9655769bf2009294c82131e6d0029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"Note: Simple contract to use as base for const vals\\r\"}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Common.sol\":\"CommonConstants\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Common.sol\":{\"keccak256\":\"0x0d89b028075676ec36d3c3564fb222e0bad4317e2c6561639be2a2f1fa510283\",\"urls\":[\"bzzr://88c0afc47fa6ba5721b3f2f5248acfb31d7910d187f4b21e9c5073c94836445e\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058202094fa335f662b029fd8f7a4edf2bb120c297909d59cd296db49351f2335022a0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058202094fa335f662b029fd8f7a4edf2bb120c297909d59cd296db49351f2335022a0029",
   "sourceMap": "93:330:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;93:330:0;;;;;;;",
   "deployedSourceMap": "93:330:0:-;;;;;",
   "source": "pragma solidity ^0.5.0;\r\n\r\n/**\r\n    Note: Simple contract to use as base for const vals\r\n*/\r\ncontract CommonConstants {\r\n\r\n    bytes4 constant internal ERC1155_ACCEPTED = 0xf23a6e61; // bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\"))\r\n    bytes4 constant internal ERC1155_BATCH_ACCEPTED = 0xbc197c81; // bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))\r\n}\r\n",
-  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\festook\\contracts\\Common.sol",
+  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\fook\\contracts\\Common.sol",
   "ast": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Common.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Common.sol",
     "exportedSymbols": {
       "CommonConstants": [
         8
@@ -136,7 +136,7 @@
     "src": "0:425:0"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Common.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Common.sol",
     "exportedSymbols": {
       "CommonConstants": [
         8
@@ -268,7 +268,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-02-11T09:38:15.122Z",
+  "updatedAt": "2020-03-02T11:22:53.430Z",
   "devdoc": {
     "methods": {}
   },

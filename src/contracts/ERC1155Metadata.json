@@ -271,15 +271,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"name\":\"_values\",\"type\":\"uint256[]\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owners\",\"type\":\"address[]\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"balanceOfBatch\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"},{\"name\":\"_value\",\"type\":\"uint256\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"TransferSingle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"indexed\":false,\"name\":\"_values\",\"type\":\"uint256[]\"}],\"name\":\"TransferBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":true,\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"}],\"devdoc\":{\"details\":\"Methods assume a deterministic generation of URI based on token IDs.\\r     Methods also assume that URI uses hex representation of token IDs.\\r\",\"methods\":{\"balanceOf(address,uint256)\":{\"params\":{\"_id\":\"ID of the Token\\r\",\"_owner\":\"The address of the token holder\\r\"},\"return\":\"The _owner's balance of the Token type requested\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"params\":{\"_ids\":\"ID of the Tokens\\r\",\"_owners\":\"The addresses of the token holders\\r\"},\"return\":\"The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\\r\"},\"isApprovedForAll(address,address)\":{\"params\":{\"_operator\":\"Address of authorized operator\\r\",\"_owner\":\"The owner of the Tokens\\r\"},\"return\":\"True if the operator is approved, false if not\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if length of `_ids` is not the same as length of `_values`.\\r MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\\r MUST revert on any other error.\\r MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \\\"Safe Transfer Rules\\\" section of the standard).\\r Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\\r After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\\r\",\"_from\":\"Source address\\r\",\"_ids\":\"IDs of each token type (order and length must match _values array)\\r\",\"_to\":\"Target address\\r\",\"_values\":\"Transfer amounts per token type (order and length must match _ids array)\\r\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\\r MUST revert on any other error.\\r MUST emit the `TransferSingle` event to reflect the balance change (see \\\"Safe Transfer Rules\\\" section of the standard).\\r After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\\r\",\"_from\":\"Source address\\r\",\"_id\":\"ID of the token type\\r\",\"_to\":\"Target address\\r\",\"_value\":\"Transfer amount\\r\"}},\"setApprovalForAll(address,bool)\":{\"details\":\"MUST emit the ApprovalForAll event on success.\\r\",\"params\":{\"_approved\":\"True if the operator is approved, false to revoke approval\\r\",\"_operator\":\"Address to add to the set of authorized operators\\r\"}},\"uri(uint256)\":{\"details\":\"URIs are defined in RFC 3986.\\r     URIs are assumed to be deterministically generated based on token ID\\r     Token IDs are assumed to be represented in their hex format in URIs\\r\",\"return\":\"URI string\\r\"}}},\"userdoc\":{\"methods\":{\"balanceOf(address,uint256)\":{\"notice\":\"Get the balance of an account's Tokens.\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"notice\":\"Get the balance of multiple account/token pairs\\r\"},\"isApprovedForAll(address,address)\":{\"notice\":\"Queries the approval status of an operator for a given owner.\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"setApprovalForAll(address,bool)\":{\"notice\":\"Enable or disable approval for a third party (\\\"operator\\\") to manage all of the caller's tokens.\\r\"},\"uri(uint256)\":{\"notice\":\"A distinct Uniform Resource Identifier (URI) for a given token.\\r\"}},\"notice\":\"Contract that handles metadata related methods.\\r\"}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/ERC1155Metadata.sol\":\"ERC1155Metadata\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/ERC1155Metadata.sol\":{\"keccak256\":\"0x2612d7dfffa07376ea8eaaee79de8eb488ca58b2122fcd922126a6efeed0e7ba\",\"urls\":[\"bzzr://85d7ba96762a5a5c8c3edd8fdd1b9cab9c9774164a62992b8fccd508f61e7fcc\"]},\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol\":{\"keccak256\":\"0xfdd81938cb05358252248e8a37bacf2d381ba26d37616fcc21f74647a9a93802\",\"urls\":[\"bzzr://ba8d99c9c54c137baf3967593baef323a079a6ba8ed253455a13cbe516b949ef\"]},\"/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Strings.sol\":{\"keccak256\":\"0xc02bdf2c1aa60d23422522b61974f08915cbbfe9ef44b9542127607740dcae82\",\"urls\":[\"bzzr://042e90deb39bde8997b001ecbc98056496dd3493e351a0eb3073775e74fbbd80\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xe0ed10f53955c35eecb02724538650a155aa940be3f0a54cd3bde6c6b0c6e48c\",\"urls\":[\"bzzr://14f0ef90a240b2aca847fe1489b10965e04ba16cf221f52ed6470d0cad291f9d\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"name\":\"_values\",\"type\":\"uint256[]\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owners\",\"type\":\"address[]\"},{\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"balanceOfBatch\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_id\",\"type\":\"uint256\"},{\"name\":\"_value\",\"type\":\"uint256\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"TransferSingle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_ids\",\"type\":\"uint256[]\"},{\"indexed\":false,\"name\":\"_values\",\"type\":\"uint256[]\"}],\"name\":\"TransferBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":true,\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"}],\"devdoc\":{\"details\":\"Methods assume a deterministic generation of URI based on token IDs.\\r     Methods also assume that URI uses hex representation of token IDs.\\r\",\"methods\":{\"balanceOf(address,uint256)\":{\"params\":{\"_id\":\"ID of the Token\\r\",\"_owner\":\"The address of the token holder\\r\"},\"return\":\"The _owner's balance of the Token type requested\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"params\":{\"_ids\":\"ID of the Tokens\\r\",\"_owners\":\"The addresses of the token holders\\r\"},\"return\":\"The _owner's balance of the Token types requested (i.e. balance for each (owner, id) pair)\\r\"},\"isApprovedForAll(address,address)\":{\"params\":{\"_operator\":\"Address of authorized operator\\r\",\"_owner\":\"The owner of the Tokens\\r\"},\"return\":\"True if the operator is approved, false if not\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if length of `_ids` is not the same as length of `_values`.\\r MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\\r MUST revert on any other error.\\r MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \\\"Safe Transfer Rules\\\" section of the standard).\\r Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\\r After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\\r\",\"_from\":\"Source address\\r\",\"_ids\":\"IDs of each token type (order and length must match _values array)\\r\",\"_to\":\"Target address\\r\",\"_values\":\"Transfer amounts per token type (order and length must match _ids array)\\r\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"details\":\"Caller must be approved to manage the tokens being transferred out of the `_from` account (see \\\"Approval\\\" section of the standard).\\r MUST revert if `_to` is the zero address.\\r MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\\r MUST revert on any other error.\\r MUST emit the `TransferSingle` event to reflect the balance change (see \\\"Safe Transfer Rules\\\" section of the standard).\\r After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \\\"Safe Transfer Rules\\\" section of the standard).\\r\",\"params\":{\"_data\":\"Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\\r\",\"_from\":\"Source address\\r\",\"_id\":\"ID of the token type\\r\",\"_to\":\"Target address\\r\",\"_value\":\"Transfer amount\\r\"}},\"setApprovalForAll(address,bool)\":{\"details\":\"MUST emit the ApprovalForAll event on success.\\r\",\"params\":{\"_approved\":\"True if the operator is approved, false to revoke approval\\r\",\"_operator\":\"Address to add to the set of authorized operators\\r\"}},\"uri(uint256)\":{\"details\":\"URIs are defined in RFC 3986.\\r     URIs are assumed to be deterministically generated based on token ID\\r     Token IDs are assumed to be represented in their hex format in URIs\\r\",\"return\":\"URI string\\r\"}}},\"userdoc\":{\"methods\":{\"balanceOf(address,uint256)\":{\"notice\":\"Get the balance of an account's Tokens.\\r\"},\"balanceOfBatch(address[],uint256[])\":{\"notice\":\"Get the balance of multiple account/token pairs\\r\"},\"isApprovedForAll(address,address)\":{\"notice\":\"Queries the approval status of an operator for a given owner.\\r\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\\r\"},\"setApprovalForAll(address,bool)\":{\"notice\":\"Enable or disable approval for a third party (\\\"operator\\\") to manage all of the caller's tokens.\\r\"},\"uri(uint256)\":{\"notice\":\"A distinct Uniform Resource Identifier (URI) for a given token.\\r\"}},\"notice\":\"Contract that handles metadata related methods.\\r\"}},\"settings\":{\"compilationTarget\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/ERC1155Metadata.sol\":\"ERC1155Metadata\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/ERC1155Metadata.sol\":{\"keccak256\":\"0x2612d7dfffa07376ea8eaaee79de8eb488ca58b2122fcd922126a6efeed0e7ba\",\"urls\":[\"bzzr://85d7ba96762a5a5c8c3edd8fdd1b9cab9c9774164a62992b8fccd508f61e7fcc\"]},\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol\":{\"keccak256\":\"0xfdd81938cb05358252248e8a37bacf2d381ba26d37616fcc21f74647a9a93802\",\"urls\":[\"bzzr://ba8d99c9c54c137baf3967593baef323a079a6ba8ed253455a13cbe516b949ef\"]},\"/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Strings.sol\":{\"keccak256\":\"0xc02bdf2c1aa60d23422522b61974f08915cbbfe9ef44b9542127607740dcae82\",\"urls\":[\"bzzr://042e90deb39bde8997b001ecbc98056496dd3493e351a0eb3073775e74fbbd80\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xe0ed10f53955c35eecb02724538650a155aa940be3f0a54cd3bde6c6b0c6e48c\",\"urls\":[\"bzzr://14f0ef90a240b2aca847fe1489b10965e04ba16cf221f52ed6470d0cad291f9d\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"./IERC1155.sol\";\r\nimport \"./Strings.sol\";\r\n\r\n/**\r\n * @notice Contract that handles metadata related methods.\r\n * @dev Methods assume a deterministic generation of URI based on token IDs.\r\n *      Methods also assume that URI uses hex representation of token IDs.\r\n */\r\ncontract ERC1155Metadata is IERC1155 {\r\n    using Strings for string;\r\n\r\n    // URI's default URI prefix\r\n    string internal baseMetadataURI;\r\n\r\n    /**\r\n   * @notice A distinct Uniform Resource Identifier (URI) for a given token.\r\n   * @dev URIs are defined in RFC 3986.\r\n   *      URIs are assumed to be deterministically generated based on token ID\r\n   *      Token IDs are assumed to be represented in their hex format in URIs\r\n   * @return URI string\r\n   */\r\n    function uri(uint256 _id) public view returns (string memory) {\r\n        return\r\n            string(\r\n                abi.encodePacked(\r\n                    baseMetadataURI,\r\n                    Strings.uint2str(_id),\r\n                    \".json\"\r\n                )\r\n            );\r\n    }\r\n\r\n    /**\r\n   * @notice Will update the base URL of token's URI\r\n   * @param _newBaseMetadataURI New base URL of token's URI\r\n   */\r\n    function _setBaseMetadataURI(string memory _newBaseMetadataURI) internal {\r\n        baseMetadataURI = _newBaseMetadataURI;\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\festook\\contracts\\ERC1155Metadata.sol",
+  "sourcePath": "C:\\Users\\SergiiBomko\\Documents\\GitHub\\fook\\contracts\\ERC1155Metadata.sol",
   "ast": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/ERC1155Metadata.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/ERC1155Metadata.sol",
     "exportedSymbols": {
       "ERC1155Metadata": [
         812
@@ -300,23 +300,23 @@
         "src": "0:23:3"
       },
       {
-        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol",
+        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol",
         "file": "./IERC1155.sol",
         "id": 773,
         "nodeType": "ImportDirective",
         "scope": 813,
-        "sourceUnit": 2251,
+        "sourceUnit": 2297,
         "src": "27:24:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Strings.sol",
+        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Strings.sol",
         "file": "./Strings.sol",
         "id": 774,
         "nodeType": "ImportDirective",
         "scope": 813,
-        "sourceUnit": 2672,
+        "sourceUnit": 2718,
         "src": "53:23:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -330,10 +330,10 @@
               "id": 775,
               "name": "IERC1155",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2250,
+              "referencedDeclaration": 2296,
               "src": "332:8:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC1155_$2250",
+                "typeIdentifier": "t_contract$_IERC1155_$2296",
                 "typeString": "contract IERC1155"
               }
             },
@@ -343,7 +343,7 @@
           }
         ],
         "contractDependencies": [
-          2250
+          2296
         ],
         "contractKind": "contract",
         "documentation": "@notice Contract that handles metadata related methods.\r\n@dev Methods assume a deterministic generation of URI based on token IDs.\r\n     Methods also assume that URI uses hex representation of token IDs.\r",
@@ -351,7 +351,7 @@
         "id": 812,
         "linearizedBaseContracts": [
           812,
-          2250
+          2296
         ],
         "name": "ERC1155Metadata",
         "nodeType": "ContractDefinition",
@@ -363,10 +363,10 @@
               "id": 777,
               "name": "Strings",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2671,
+              "referencedDeclaration": 2717,
               "src": "354:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Strings_$2671",
+                "typeIdentifier": "t_contract$_Strings_$2717",
                 "typeString": "library Strings"
               }
             },
@@ -465,10 +465,10 @@
                                 "name": "Strings",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 2671,
+                                "referencedDeclaration": 2717,
                                 "src": "968:7:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_Strings_$2671_$",
+                                  "typeIdentifier": "t_type$_t_contract$_Strings_$2717_$",
                                   "typeString": "type(library Strings)"
                                 }
                               },
@@ -479,7 +479,7 @@
                               "lValueRequested": false,
                               "memberName": "uint2str",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 2670,
+                              "referencedDeclaration": 2716,
                               "src": "968:16:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_string_memory_ptr_$",
@@ -540,7 +540,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3368,
+                            "referencedDeclaration": 3414,
                             "src": "891:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -810,7 +810,7 @@
     "src": "0:1334:3"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/ERC1155Metadata.sol",
+    "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/ERC1155Metadata.sol",
     "exportedSymbols": {
       "ERC1155Metadata": [
         812
@@ -831,23 +831,23 @@
         "src": "0:23:3"
       },
       {
-        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/IERC1155.sol",
+        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/IERC1155.sol",
         "file": "./IERC1155.sol",
         "id": 773,
         "nodeType": "ImportDirective",
         "scope": 813,
-        "sourceUnit": 2251,
+        "sourceUnit": 2297,
         "src": "27:24:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/festook/contracts/Strings.sol",
+        "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/Strings.sol",
         "file": "./Strings.sol",
         "id": 774,
         "nodeType": "ImportDirective",
         "scope": 813,
-        "sourceUnit": 2672,
+        "sourceUnit": 2718,
         "src": "53:23:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -861,10 +861,10 @@
               "id": 775,
               "name": "IERC1155",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2250,
+              "referencedDeclaration": 2296,
               "src": "332:8:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC1155_$2250",
+                "typeIdentifier": "t_contract$_IERC1155_$2296",
                 "typeString": "contract IERC1155"
               }
             },
@@ -874,7 +874,7 @@
           }
         ],
         "contractDependencies": [
-          2250
+          2296
         ],
         "contractKind": "contract",
         "documentation": "@notice Contract that handles metadata related methods.\r\n@dev Methods assume a deterministic generation of URI based on token IDs.\r\n     Methods also assume that URI uses hex representation of token IDs.\r",
@@ -882,7 +882,7 @@
         "id": 812,
         "linearizedBaseContracts": [
           812,
-          2250
+          2296
         ],
         "name": "ERC1155Metadata",
         "nodeType": "ContractDefinition",
@@ -894,10 +894,10 @@
               "id": 777,
               "name": "Strings",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2671,
+              "referencedDeclaration": 2717,
               "src": "354:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Strings_$2671",
+                "typeIdentifier": "t_contract$_Strings_$2717",
                 "typeString": "library Strings"
               }
             },
@@ -996,10 +996,10 @@
                                 "name": "Strings",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 2671,
+                                "referencedDeclaration": 2717,
                                 "src": "968:7:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_Strings_$2671_$",
+                                  "typeIdentifier": "t_type$_t_contract$_Strings_$2717_$",
                                   "typeString": "type(library Strings)"
                                 }
                               },
@@ -1010,7 +1010,7 @@
                               "lValueRequested": false,
                               "memberName": "uint2str",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 2670,
+                              "referencedDeclaration": 2716,
                               "src": "968:16:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_string_memory_ptr_$",
@@ -1071,7 +1071,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3368,
+                            "referencedDeclaration": 3414,
                             "src": "891:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -1346,7 +1346,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-02-11T09:38:15.143Z",
+  "updatedAt": "2020-03-02T11:22:53.441Z",
   "devdoc": {
     "details": "Methods assume a deterministic generation of URI based on token IDs.\r     Methods also assume that URI uses hex representation of token IDs.\r",
     "methods": {
