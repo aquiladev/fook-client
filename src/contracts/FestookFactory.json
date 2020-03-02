@@ -3279,12 +3279,18 @@
     "4": {
       "events": {},
       "links": {},
-      "address": "0x0E84Cc7B424AF05Ef83Ac8ca2C3134531342feF1",
-      "transactionHash": "0x99ed53a44db649ac7ffae24c040e647ddbd388f319629707b3adaaf04c23452f"
+      "address": "0x78d1e4d33d3649C15498909B8DE833C313639477",
+      "transactionHash": "0x8118fc2b5fada5ef5fef997a7ebddfd0183938585a6a3564ab755ed1a503c1c4"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x1839f98532411F6C44ED3E55e14E6Fe78921Ea92",
+      "transactionHash": "0x7be062664e257ebd5da3a9aa9259751af54dcbce2f60fb039b3d2a1dd83b1169"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-03-02T11:22:53.467Z",
+  "updatedAt": "2020-03-02T13:33:33.650Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
