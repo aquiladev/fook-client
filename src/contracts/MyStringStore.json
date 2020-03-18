@@ -41,14 +41,14 @@
     "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/MyStringStore.sol",
     "exportedSymbols": {
       "MyStringStore": [
-        2394
+        2616
       ]
     },
-    "id": 2395,
+    "id": 2617,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2380,
+        "id": 2602,
         "literals": [
           "solidity",
           "^",
@@ -64,19 +64,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2394,
+        "id": 2616,
         "linearizedBaseContracts": [
-          2394
+          2616
         ],
         "name": "MyStringStore",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2383,
+            "id": 2605,
             "name": "myString",
             "nodeType": "VariableDeclaration",
-            "scope": 2394,
+            "scope": 2616,
             "src": "55:38:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -85,7 +85,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 2381,
+              "id": 2603,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "55:6:14",
@@ -97,7 +97,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "48656c6c6f20576f726c64",
-              "id": 2382,
+              "id": 2604,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -116,25 +116,25 @@
           },
           {
             "body": {
-              "id": 2392,
+              "id": 2614,
               "nodeType": "Block",
               "src": "137:25:14",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2390,
+                    "id": 2612,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 2388,
+                      "id": 2610,
                       "name": "myString",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2383,
+                      "referencedDeclaration": 2605,
                       "src": "144:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -145,11 +145,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2389,
+                      "id": 2611,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2385,
+                      "referencedDeclaration": 2607,
                       "src": "155:1:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -162,29 +162,29 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 2391,
+                  "id": 2613,
                   "nodeType": "ExpressionStatement",
                   "src": "144:12:14"
                 }
               ]
             },
             "documentation": null,
-            "id": 2393,
+            "id": 2615,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "set",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2386,
+              "id": 2608,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2385,
+                  "id": 2607,
                   "name": "x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2393,
+                  "scope": 2615,
                   "src": "113:15:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -193,7 +193,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2384,
+                    "id": 2606,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "113:6:14",
@@ -209,19 +209,19 @@
               "src": "112:17:14"
             },
             "returnParameters": {
-              "id": 2387,
+              "id": 2609,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "137:0:14"
             },
-            "scope": 2394,
+            "scope": 2616,
             "src": "100:62:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2395,
+        "scope": 2617,
         "src": "27:138:14"
       }
     ],
@@ -231,14 +231,14 @@
     "absolutePath": "/C/Users/SergiiBomko/Documents/GitHub/fook/contracts/MyStringStore.sol",
     "exportedSymbols": {
       "MyStringStore": [
-        2394
+        2616
       ]
     },
-    "id": 2395,
+    "id": 2617,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2380,
+        "id": 2602,
         "literals": [
           "solidity",
           "^",
@@ -254,19 +254,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2394,
+        "id": 2616,
         "linearizedBaseContracts": [
-          2394
+          2616
         ],
         "name": "MyStringStore",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2383,
+            "id": 2605,
             "name": "myString",
             "nodeType": "VariableDeclaration",
-            "scope": 2394,
+            "scope": 2616,
             "src": "55:38:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -275,7 +275,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 2381,
+              "id": 2603,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "55:6:14",
@@ -287,7 +287,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "48656c6c6f20576f726c64",
-              "id": 2382,
+              "id": 2604,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -306,25 +306,25 @@
           },
           {
             "body": {
-              "id": 2392,
+              "id": 2614,
               "nodeType": "Block",
               "src": "137:25:14",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 2390,
+                    "id": 2612,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 2388,
+                      "id": 2610,
                       "name": "myString",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2383,
+                      "referencedDeclaration": 2605,
                       "src": "144:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -335,11 +335,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 2389,
+                      "id": 2611,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2385,
+                      "referencedDeclaration": 2607,
                       "src": "155:1:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -352,29 +352,29 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 2391,
+                  "id": 2613,
                   "nodeType": "ExpressionStatement",
                   "src": "144:12:14"
                 }
               ]
             },
             "documentation": null,
-            "id": 2393,
+            "id": 2615,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "set",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2386,
+              "id": 2608,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2385,
+                  "id": 2607,
                   "name": "x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2393,
+                  "scope": 2615,
                   "src": "113:15:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -383,7 +383,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2384,
+                    "id": 2606,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "113:6:14",
@@ -399,19 +399,19 @@
               "src": "112:17:14"
             },
             "returnParameters": {
-              "id": 2387,
+              "id": 2609,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "137:0:14"
             },
-            "scope": 2394,
+            "scope": 2616,
             "src": "100:62:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2395,
+        "scope": 2617,
         "src": "27:138:14"
       }
     ],
@@ -425,18 +425,12 @@
     "4": {
       "events": {},
       "links": {},
-      "address": "0x3bCAA69B884e7C19cb596896ee4D8929be8f4f5B",
-      "transactionHash": "0xd4e0e7869a238ae44e10917114b44b8bb73847129c9ad7c5f5f4ddc630b68e24"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x1294a21398107234Cc182fEC4d77855C9028E16c",
-      "transactionHash": "0x6cd750f32fc1fda2701b6f134d8ab4f0d1f9b7adba5689954147bcec0d2b2384"
+      "address": "0x5630EC48e3EC93952b3B4d1d4d181C01B43A65F5",
+      "transactionHash": "0xbb377b91021beca3135a248a0ab33b6ac718d0a57f72f8a736cc41a90cc4ba3d"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-03-02T16:49:32.058Z",
+  "updatedAt": "2020-03-05T20:45:14.183Z",
   "devdoc": {
     "methods": {}
   },
