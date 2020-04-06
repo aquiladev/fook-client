@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import ReadFee from "./components/ReadFee";
 import CreateCollection from "./components/CreateCollection";
-import ReadString from "./components/ReadString";
-import SetString from "./components/SetString";
+// import ReadString from "./components/ReadString";
+// import SetString from "./components/SetString";
 
 import './App.css';
 
