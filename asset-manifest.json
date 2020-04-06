@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/fook-client/static/css/main.5df7d988.chunk.css",
-    "main.js": "/fook-client/static/js/main.f4f87907.chunk.js",
-    "main.js.map": "/fook-client/static/js/main.f4f87907.chunk.js.map",
+    "main.js": "/fook-client/static/js/main.deb89bcd.chunk.js",
+    "main.js.map": "/fook-client/static/js/main.deb89bcd.chunk.js.map",
     "runtime-main.js": "/fook-client/static/js/runtime-main.0bebfa6c.js",
     "runtime-main.js.map": "/fook-client/static/js/runtime-main.0bebfa6c.js.map",
-    "static/js/2.9ac0468c.chunk.js": "/fook-client/static/js/2.9ac0468c.chunk.js",
-    "static/js/2.9ac0468c.chunk.js.map": "/fook-client/static/js/2.9ac0468c.chunk.js.map",
+    "static/js/2.6a0968af.chunk.js": "/fook-client/static/js/2.6a0968af.chunk.js",
+    "static/js/2.6a0968af.chunk.js.map": "/fook-client/static/js/2.6a0968af.chunk.js.map",
     "index.html": "/fook-client/index.html",
-    "precache-manifest.2addc573e7c0103923a88f8167069ca8.js": "/fook-client/precache-manifest.2addc573e7c0103923a88f8167069ca8.js",
+    "precache-manifest.686bc1994c2dbf292914aa48d1b12914.js": "/fook-client/precache-manifest.686bc1994c2dbf292914aa48d1b12914.js",
     "service-worker.js": "/fook-client/service-worker.js",
     "static/css/main.5df7d988.chunk.css.map": "/fook-client/static/css/main.5df7d988.chunk.css.map",
-    "static/js/2.9ac0468c.chunk.js.LICENSE.txt": "/fook-client/static/js/2.9ac0468c.chunk.js.LICENSE.txt"
+    "static/js/2.6a0968af.chunk.js.LICENSE.txt": "/fook-client/static/js/2.6a0968af.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0bebfa6c.js",
-    "static/js/2.9ac0468c.chunk.js",
+    "static/js/2.6a0968af.chunk.js",
     "static/css/main.5df7d988.chunk.css",
-    "static/js/main.f4f87907.chunk.js"
+    "static/js/main.deb89bcd.chunk.js"
   ]
 }
